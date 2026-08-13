@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samanway-koley.github.io/india-netherlands-time/sitemap.xml

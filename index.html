@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>India ⇄ Netherlands Time Converter — Live IST &amp; Tilburg Clock</title>
+<meta name="description" content="Live dual clock showing India Standard Time (IST, New Delhi) and Netherlands time (Tilburg, CET/CEST) side by side. Includes live time difference, 12/24-hour formats, shared working hours calculator, and auto DST." />
+<meta name="keywords" content="India time, Netherlands time, IST clock, Tilburg time, dual clock, world clock, India Netherlands time difference, CET clock, CEST clock, timezone converter, live clock, working hours overlap" />
+<meta name="author" content="Samanway Koley" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href="https://samanway-koley.github.io/india-netherlands-time/" />
+<meta name="theme-color" content="#f4f2ee" />
+<meta name="color-scheme" content="light" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="India ⇄ Netherlands Time" />
+<meta property="og:title" content="India ⇄ Netherlands Time — Live IST &amp; Tilburg Clock" />
+<meta property="og:description" content="Live dual clock for India (IST) and Netherlands (Tilburg, CET/CEST). 12‑hour &amp; 24‑hour, day‑night field, shared working hours, auto DST." />
+<meta property="og:url" content="https://samanway-koley.github.io/india-netherlands-time/" />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="India ⇄ Netherlands Time — Live IST &amp; Tilburg Clock" />
+<meta name="twitter:description" content="Live dual clock: India (IST) &amp; Netherlands (Tilburg, CET/CEST). 12/24‑hour, day‑night field, shared hours, auto DST." />
+
+<!-- Preconnect for Google Fonts (non‑blocking) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" /></noscript>
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css" />
+
+<!-- Schema.org structured data (Enhanced for Google SEO & Rich Snippets) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "India ⇄ Netherlands Time",
+  "url": "https://samanway-koley.github.io/india-netherlands-time/",
+  "description": "Live dual clock showing India (IST, New Delhi) and Netherlands (Tilburg, CET/CEST) time side by side with 12‑hour and 24‑hour formats, offset calculations, and shared business hours.",
+  "author": { "@type": "Person", "name": "Samanway Koley" },
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the time difference between India and the Netherlands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India is ahead of the Netherlands. During European Summer Time (CEST), India is 3 hours and 30 minutes ahead. During European Winter Time (CET), India is 4 hours and 30 minutes ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Netherlands observe Daylight Saving Time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the Netherlands shifts between Central European Time (CET, UTC+1) in winter and Central European Summer Time (CEST, UTC+2) in summer. India Standard Time (IST, UTC+5:30) does not observe Daylight Saving Time."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="ring ring-a" aria-hidden="true"></div>
+<div class="ring ring-b" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <!-- ======= masthead ======= -->
+  <header class="mast" role="banner">
+    <a href="#">
+      <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><i></i><b></b><s></s></div>
+      <div>
+        <h1><em>India</em> ⇄ <u>Netherlands</u> Time</h1>
+        <small>Live IST &amp; Tilburg clock</small>
+      </div>
+    </div>
+    </a>
+    <div class="mast-tools">
+      <div class="utc-chip" aria-live="polite">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>UTC</span>
+        <strong id="utcTime">--:--:--</strong>
+      </div>
+      <button class="fmt-toggle" id="fmtToggle" aria-label="Toggle between 12‑hour and 24‑hour time format" title="12H / 24H toggle">
+        <span id="f12" class="on">12H</span><span id="f24">24H</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= clock pair ======= -->
+  <main class="duo" role="main" aria-label="Dual clock — India and Netherlands">
+
+    <!-- INDIA -->
+    <article class="card ist" id="cardIST" aria-label="India time — New Delhi, Asia/Kolkata">
+      <span class="tag">Nº 01 — IST</span>
+      <div class="card-head">
+        <div class="city-block">
+          <span class="flag flag-in" aria-hidden="true"></span>
+          <div>
+            <h2 class="city">New Delhi</h2>
+            <p class="sub">India · Asia/Kolkata</p>
+          </div>
+        </div>
+        <div class="pill" aria-hidden="true">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" width="11" height="11"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M4.9 19.1l1.9-1.9M17.2 6.8l1.9-1.9"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" style="display:none" aria-hidden="true"><path d="M20.2 14.9A8.6 8.6 0 0 1 9.1 3.8a8.9 8.9 0 1 0 11.1 11.1z"/></svg>
+          <span class="pill-label">Daylight</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="digital" aria-live="polite">
+          <div class="time">
+            <span class="hh">--</span><span class="colon">:</span><span class="mm">--</span><span class="mer">--</span><span class="sec" id="secIST">--</span>
+          </div>
+          <div class="dateline">
+            <span class="date" id="dateIST">—</span>
+            <span class="chip offset" id="offIST">UTC —</span>
+            <span class="doy" id="doyIST">Day --- · Wk --</span>
+          </div>
+        </div>
+        <div class="analog" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="128" height="128" role="img" aria-label="Analog clock for India time">
+            <circle class="dial" cx="60" cy="60" r="56"/>
+            <g id="ticksIST"></g>
+            <line class="hh" id="hhIST" x1="60" y1="60" x2="60" y2="34"/>
+            <line class="mh" id="mhIST" x1="60" y1="60" x2="60" y2="24"/>
+            <line class="sh" id="shIST" x1="60" y1="66" x2="60" y2="18"/>
+            <circle class="pin" cx="60" cy="60" r="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-foot">
+        <div class="progress"><div class="progress-fill" id="progIST"></div></div>
+        <div class="foot-meta">
+          <span class="elapsed">Day elapsed <b id="elapIST">--%</b></span>
+          <button class="copy" data-tz="Asia/Kolkata" aria-label="Copy India time to clipboard">Copy</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- DELTA -->
+    <aside class="delta" aria-live="polite" aria-label="Time difference between India and Netherlands">
+      <div class="delta-line"></div>
+      <div class="delta-badge">
+        <div>
+          <div class="delta-num" id="deltaNum">Δ --</div>
+          <div class="delta-cap">offset</div>
+        </div>
+      </div>
+      <div class="delta-label" id="deltaLabel">computing…</div>
+      <div class="delta-line"></div>
+    </aside>
+
+    <!-- NETHERLANDS -->
+    <article class="card nl" id="cardNL" aria-label="Netherlands time — Tilburg, Europe/Amsterdam">
+      <span class="tag">Nº 02 — CET</span>
+      <div class="card-head">
+        <div class="city-block">
+          <span class="flag flag-nl" aria-hidden="true"></span>
+          <div>
+            <h2 class="city">Tilburg</h2>
+            <p class="sub">Netherlands · Europe/Amsterdam</p>
+          </div>
+        </div>
+        <div class="pill" aria-hidden="true">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" width="11" height="11"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M4.9 19.1l1.9-1.9M17.2 6.8l1.9-1.9"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" style="display:none" aria-hidden="true"><path d="M20.2 14.9A8.6 8.6 0 0 1 9.1 3.8a8.9 8.9 0 1 0 11.1 11.1z"/></svg>
+          <span class="pill-label">Daylight</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="digital" aria-live="polite">
+          <div class="time">
+            <span class="hh">--</span><span class="colon">:</span><span class="mm">--</span><span class="mer">--</span><span class="sec" id="secNL">--</span>
+          </div>
+          <div class="dateline">
+            <span class="date" id="dateNL">—</span>
+            <span class="chip offset" id="offNL">UTC —</span>
+            <span class="doy" id="doyNL">Day --- · Wk --</span>
+          </div>
+        </div>
+        <div class="analog" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="128" height="128" role="img" aria-label="Analog clock for Netherlands time">
+            <circle class="dial" cx="60" cy="60" r="56"/>
+            <g id="ticksNL"></g>
+            <line class="hh" id="hhNL" x1="60" y1="60" x2="60" y2="34"/>
+            <line class="mh" id="mhNL" x1="60" y1="60" x2="60" y2="24"/>
+            <line class="sh" id="shNL" x1="60" y1="66" x2="60" y2="18"/>
+            <circle class="pin" cx="60" cy="60" r="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-foot">
+        <div class="progress"><div class="progress-fill" id="progNL"></div></div>
+        <div class="foot-meta">
+          <span class="elapsed">Day elapsed <b id="elapNL">--%</b></span>
+          <button class="copy" data-tz="Europe/Amsterdam" aria-label="Copy Netherlands time to clipboard">Copy</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- ======= day / night field ======= -->
+  <section class="timeline reveal" aria-label="24‑hour day and night field for both time zones">
+    <header>
+      <h2>Day &amp; Night Field</h2>
+      <div class="legend">shaded = night <em>7 PM – 6 AM</em> · marker = now</div>
+    </header>
+    <div class="track-row">
+      <div class="track-label">IST<b>India</b></div>
+      <div>
+        <div class="track"><div class="marker marker-ist" id="markIST"></div></div>
+        <div class="axis" data-axis><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div>
+      </div>
+    </div>
+    <div class="track-row">
+      <div class="track-label">AMS<b>Holland</b></div>
+      <div>
+        <div class="track"><div class="marker marker-nl" id="markNL"></div></div>
+        <div class="axis" data-axis><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div>
+      </div>
+    </div>
+    <div class="overlap-note" id="overlapNote"></div>
+  </section>
+
+  <!-- ======= SEO Context & FAQ Section (Keeps identical design style, adds high-value keywords) ======= -->
+  <section class="timeline reveal" aria-label="About India and Netherlands Time Zones">
+    <header>
+      <h2>Time Zone Guide &amp; FAQ</h2>
+      <div class="legend">IST vs CET/CEST <em>Overview</em></div>
+    </header>
+    <div style="font-family:var(--mono); font-size:0.62rem; color:var(--dim); line-height:1.8; display:flex; flex-direction:column; gap:12px;">
+      <p><b>India Standard Time (IST)</b> is set to UTC+5:30 year-round without daylight saving adjustments. It applies across all states in India, serving major hubs like New Delhi, Mumbai, and Bangalore.</p>
+      <p><b>Netherlands Time</b> follows Central European Time (CET, UTC+1) during winter and switches automatically to Central European Summer Time (CEST, UTC+2) during summer months across cities like Tilburg, Amsterdam, and Rotterdam.</p>
+      <p><b>Working Remotely or Scheduling Calls?</b> Use the shared office hours tracker above to immediately see the matching 9-to-5 cross-border overlap window between Indian standard business hours and European hours.</p>
+    </div>
+  </section>
+
+</div><!-- .wrap -->
+
+<footer class="main-footer reveal" role="contentinfo">
+  <span class="copyr">Copyright &copy; 2026</span>
+  <span class="dev">Developed by <b><a href="https://github.com/Samanway-Koley" target="_blank">Samanway Koley</a></b></span>
+  <nav class="social" aria-label="Contact links">
+    <a href="mailto:samanway.koley@gmail.com" class="mail" aria-label="Send email to Samanway Koley" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4 12 13 2 4"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/samanway-koley" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Samanway Koley on LinkedIn (opens in new tab)" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.3.3 0 000 .1V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.4.86 3.4 3.66z"/></svg>
+    </a>
+  </nav>
+</footer>
+
+<!-- External JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
